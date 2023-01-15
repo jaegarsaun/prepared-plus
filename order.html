@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+  content="Prepared Plus Meal Order Form. Get yours today!">
+  <link rel="shortcut icon" type="image/x-icon" href="img/josh-logo-removebg-preview.ico" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/0177a0f66d.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/css/multi-select-tag.css">
+  
+  <title>Order Form | Prepared Plus - Gander, NL</title>
+</head>
+
+<body onload="orderPage2();">
+  <!--NAVBAR-->
+  <nav>
+    <a href="" class="nl-link"><img src="img/josh-logo-removebg-preview.png" height="125px" alt="" class="nav-logo">
+      <a href="#" class="toggle-button">
+        <span class="bar bar1"></span>
+        <span class="bar bar2"></span>
+        <span class="bar bar3"></span>
+
+      </a>
+      <div class="nav-links-media">
+        <ul class="nav-ul">
+          <li class="nav-li">
+            <a href="home" class="nav-link">Home</a>
+          </li>
+          <li class="nav-li">
+            <a href="home#menu-anchor1" class="nav-link">Menu</a>
+          </li>
+          <li class="nav-li">
+            <a href="order" class="nav-link">Order</a>
+          </li>
+          <li class="nav-li">
+            <a href="about" class="nav-link">About Us</a>
+          </li>
+          
+          <div class="media-socials">
+            <li class="nav-li">
+              <a href="https://www.facebook.com/profile.php?id=100082957863522&mibextid=LQQJ4d" class="nav-link"><i class="fa-brands fa-facebook"></i></a>
+            </li>
+            <li class="nav-li">
+              <a href="https://instagram.com/preparedplusbychefjosh?igshid=Zjc2ZTc4Nzk=" class="nav-link"><i class="fa-brands fa-instagram"></i></a>
+            </li>
+            <li class="nav-li">
+              <a href="mailto:preparedbycj@gmail.com" class="nav-link"><i class="fa-solid fa-envelope"></i></a>
+            </li>
+          </div>
+
+        </ul>
+
+
+      </div>
+
+      <div class="nav-socials">
+        <ul class="nav-ul">
+          <li class="nav-li socials">
+            <a href="https://www.facebook.com/profile.php?id=100082957863522&mibextid=LQQJ4d" class="nav-link social-link"><i class="fa-brands fa-facebook"></i></a>
+          </li>
+          <li class="nav-li socials">
+            <a href="https://instagram.com/preparedplusbychefjosh?igshid=Zjc2ZTc4Nzk=" class="nav-link social-link"><i class="fa-brands fa-instagram"></i></a>
+          </li>
+          <li class="nav-li socials">
+            <a href="mailto:preparedbycj@gmail.com" class="nav-link social-link"><i class="fa-solid fa-envelope"></i></a>
+          </li>
+        </ul>
+      </div>
+
+  </nav>
+  <div class="fixed-hero">
+    <div class="container col-xxl-8 px-4 py-5">
+      <div class="row flex-lg-row-reverse align-items-center g-5 py-5 ">
+        <div class="col-10 col-sm-8 col-lg-6">
+          <img src="img/josh-logo.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="400"
+            height="200" loading="lazy">
+        </div>
+        <div class="col-lg-6">
+          <h1 class="display-5 fw-bold lh-1 mb-3 accent">Meal Kit Order Form</h1>
+          <p class="lead">If you wish to place an order, quickly fill out our order form below. Once completed you may pick up your order during our designated pickup times. We offer pickups Tuesdays and Fridays, 1pm-6pm.</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="order-wrapper">
+    <form action="/send-email.php" method="POST" class="order-form" id="order-form">
+      <label for="fname">Name</label>
+      <input type="text" name="name" id="fname" required placeholder="Ex: John Doe">
+
+      <label for="email">Email:</label>
+      <input type="text" name="email" id="email" required placeholder="Ex: johndoe@email.com">
+
+      <label for="phone">Phone #:</label>
+      <input type="text" name="phone" id="phone" required placeholder="Ex: 123-456-7890">
+
+      <label for="mealplan">Meal Plan:</label>
+      <select name="mealplan" id="mealplan" required>
+        <option value="" disabled selected class="faded-text">Select An Option</option>
+        <option value="PH">Meal option 1</option>
+        <option value="PH">Meal option 2</option>
+        <option value="PH">Meal option 3</option>
+        <option value="PH">Meal option 4</option>
+      </select>
+
+      
+
+
+      <label for="items">Desired Meals:</label>
+      <textarea name="items" id="desc" rows="10" required placeholder="Ex: Beef Stirfry, Chicken Parm, Lasagne (Refer to our menu to see available meals)"></textarea>
+
+      <label for="desc">Extra Notes:</label>
+      <textarea name="desc" id="desc" rows="10" required placeholder="Ex: Nut allergy, Dairy free"></textarea>
+      <button type="submit" onlick="window.location.href = 'order.html';">Submit Order</button>
+    </form>
+  </div>
+
+
+
+
+  <!--FOOTER-->
+  <div class="container">
+    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+      <div class="col mb-3">
+        <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+          <img src="img/josh-logo-removebg-preview.png" alt="Prepared Plus logo" class="footer-logo" height="200px">
+        </a>
+        <p class="text-muted">&copy; 2023</p>
+      </div>
+
+      <div class="col mb-3">
+
+      </div>
+
+      <div class="col mb-3">
+        <h5>Home</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="home#pricinginfo" class="nav-link p-0 text-muted">Prices</a></li>
+          <li class="nav-item mb-2"><a href="home#orderinfo" class="nav-link p-0 text-muted">Order Info</a></li>
+          <li class="nav-item mb-2"><a href="home#menu-anchor1" class="nav-link p-0 text-muted">Menu</a></li>
+
+        </ul>
+      </div>
+
+      <div class="col mb-3">
+        <h5>About us</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="about#ourgoal" class="nav-link p-0 text-muted">Our goals</a></li>
+          <li class="nav-item mb-2"><a href="about#chefjosh" class="nav-link p-0 text-muted">The Chef</a></li>
+          <li class="nav-item mb-2"><a href="home#whyus" class="nav-link p-0 text-muted">Why us</a></li>
+          <li class="nav-item mb-2"><a href="about#faqlink" class="nav-link p-0 text-muted">FAQs</a></li>
+
+        </ul>
+      </div>
+
+      <div class="col mb-3">
+        <h5>Socials</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="mailto:preparedbycj@gmail.com" class="nav-link p-0 text-muted">Email us</a></li>
+          <li class="nav-item mb-2"><a href="https://www.facebook.com/profile.php?id=100082957863522&mibextid=LQQJ4d" class="nav-link p-0 text-muted">Facebook</a></li>
+          <li class="nav-item mb-2"><a href="https://instagram.com/preparedplusbychefjosh?igshid=Zjc2ZTc4Nzk=" class="nav-link p-0 text-muted">Instagram</a></li>
+
+        </ul>
+      </div>
+    </footer>
+  </div>
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24">
+            <use xlink:href="#bootstrap" />
+          </svg>
+        </a>
+        <span class="mb-3 mb-md-0 text-muted">&copy; 2023 <a href=""
+            class="portfolio-link text-muted text-decoration-none">JLS Design</a></span>
+      </div>
+
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+              <use xlink:href="#twitter" />
+            </svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+              <use xlink:href="#instagram" />
+            </svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+              <use xlink:href="#facebook" />
+            </svg></a></li>
+      </ul>
+    </footer>
+  </div>
+
+
+
+
+  <div class="header"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Get gourmet meal kits in Gander, Newfoundland. Prepared Plus is run by Chef Josh, who uses only the freshest ingredients to create delicious and convenient meals that will satisfy any palate. Try us today!">
+    <link rel="shortcut icon" type="image/x-icon" href="img/josh-logo-removebg-preview.ico" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/0177a0f66d.js" crossorigin="anonymous"></script>
+  <script>
+
+    function doGO() {
+
+      fetch('https://afkcash.com:20914/getitems', {
+        method: 'GET'
+      })
+        .then(response => {
+          return response.json();
+        })
+        .then(data => {
+
+          const container = document.getElementById("asdk");
+          const template = document.getElementById("itema");
+
+          for (var i = 0; i < data.length; i++) {
+
+            const clone = template.content.cloneNode(true);
+
+            clone.getElementById("img").style = "background-image: url('https://afkcash.com:81/imgs/" + data[i].img + "'); background-size: cover; background-repeat: no-repeat;";
+            clone.getElementById("name").innerText = data[i].name;
+            clone.getElementById("deet").innerText = data[i].deet;
+            clone.getElementById("desc").innerText = data[i].desc;
+
+            clone.getElementById("img").id = i + "img";
+            clone.getElementById("deet").id = i + "deet";
+            clone.getElementById("desc").id = i + "desc";
+            clone.getElementById("name").id = i + "name";
+
+            container.appendChild(clone);
+
+          }
+
+        });
+
+    }
+
+  </script>
+  <title>Gourmet Meal Kits | Prepared Plus - Gander, NL</title>
+</head>
+
+<body onload="doGO();">
+  <!--NAVBAR-->
+  <nav>
+    <a href="" class="nl-link"><img src="img/josh-logo-removebg-preview.png" height="125px" alt="" class="nav-logo">
+      <a href="#" class="toggle-button">
+        <span class="bar bar1"></span>
+        <span class="bar bar2"></span>
+        <span class="bar bar3"></span>
+
+      </a>
+      <div class="nav-links-media">
+        <ul class="nav-ul">
+          <li class="nav-li">
+            <a href="home" class="nav-link">Home</a>
+          </li>
+          <li class="nav-li">
+            <a href="home#menu-anchor1" class="nav-link">Menu</a>
+          </li>
+          <li class="nav-li">
+            <a href="order" class="nav-link">Order</a>
+          </li>
+          <li class="nav-li">
+            <a href="about" class="nav-link">About Us</a>
+          </li>
+
+          <div class="media-socials">
+            <li class="nav-li">
+              <a href="https://www.facebook.com/profile.php?id=100082957863522&mibextid=LQQJ4d" class="nav-link"><i
+                  class="fa-brands fa-facebook"></i></a>
+            </li>
+            <li class="nav-li">
+              <a href="https://instagram.com/preparedplusbychefjosh?igshid=Zjc2ZTc4Nzk=" class="nav-link"><i
+                  class="fa-brands fa-instagram"></i></a>
+            </li>
+            <li class="nav-li">
+              <a href="mailto:preparedbycj@gmail.com" class="nav-link"><i class="fa-solid fa-envelope"></i></a>
+            </li>
+          </div>
+
+        </ul>
+
+
+      </div>
+
+      <div class="nav-socials">
+        <ul class="nav-ul">
+          <li class="nav-li socials">
+            <a href="https://www.facebook.com/profile.php?id=100082957863522&mibextid=LQQJ4d"
+              class="nav-link social-link"><i class="fa-brands fa-facebook"></i></a>
+          </li>
+          <li class="nav-li socials">
+            <a href="https://instagram.com/preparedplusbychefjosh?igshid=Zjc2ZTc4Nzk=" class="nav-link social-link"><i
+                class="fa-brands fa-instagram"></i></a>
+          </li>
+          <li class="nav-li socials">
+            <a href="mailto:preparedbycj@gmail.com" class="nav-link social-link"><i
+                class="fa-solid fa-envelope"></i></a>
+          </li>
+        </ul>
+      </div>
+
+  </nav>
+
+  <!--HERO SECTIONS-->
+
+  <div class="hero">
+    <h1 class="hero-txt">Prepared Plus</h1>
+    <p class="hero-body" style="margin-top: 2vh; ">Prepared by Chef Josh is a locally owned and operated business that
+      has been proudly serving the Gander Area. We offer fresh and delicious meal kits.</p>
+
+  </div>
+  </div>
+
+
+
+
+
+  <!--START OF SITE CONTENT-->
+  <section id="content">
+    <p class="main-txt">
+      Helping You With Your Health & Fitness Goals
+    </p>
+    <p class="body-txt">
+      Stay healthy | Lose Weight | Build Muscle
+    </p>
+
+  </section>
+  <!--Couple of calling cardss-->
+  <div class="container px-4 py-5" id="custom-cards">
+    <h2 class="pb-2 border-bottom"> </h2>
+
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
+          style="background-image: url('img/example-img1.png');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold drop-shad">New menu every 3 days.</h3>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+
+              </li>
+              <li class="d-flex align-items-center me-3">
+                <svg class="bi me-2" width="1em" height="1em">
+                  <use xlink:href="#geo-fill" />
+                </svg>
+                <small> </small>
+              </li>
+              <li class="d-flex align-items-center">
+                <svg class="bi me-2" width="1em" height="1em">
+                  <use xlink:href="#calendar3" />
+                </svg>
+                <small> </small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
+          style="background-image: url('img/example-img2.jpg.crdownload');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold drop-shad">Easy and affordable</h3>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+
+              </li>
+              <li class="d-flex align-items-center me-3">
+                <svg class="bi me-2" width="1em" height="1em">
+                  <use xlink:href="#geo-fill" />
+                </svg>
+                <small> </small>
+              </li>
+              <li class="d-flex align-items-center">
+                <svg class="bi me-2" width="1em" height="1em">
+                  <use xlink:href="#calendar3" />
+                </svg>
+                <small> </small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
+          style="background-image: url('img/example-img3.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold drop-shad">A dish for every pallet</h3>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+
+              </li>
+              <li class="d-flex align-items-center me-3">
+                <svg class="bi me-2" width="1em" height="1em">
+                  <use xlink:href="#geo-fill" />
+                </svg>
+                <small> </small>
+              </li>
+              <li class="d-flex align-items-center">
+                <svg class="bi me-2" width="1em" height="1em">
+                  <use xlink:href="#calendar3" />
+                </svg>
+                <small> </small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="content2" id="whyus">
+    <p class="main-txt" id="content2main">
+      Why choose us?
+    </p>
+    <p class="body-txt" id="content2body"> Our meals are prepared fresh and made to order every week. Each meal is
+      created with your health and fitness goals in mind. Eating healthy should be enjoyanle and rewarding. Leave the
+      grocery shopping, cooking and dishes to us so that you can focus on the things that matter most to you.
+    </p>
+    <p class="body-txt" id="content2body"> Our mission is to help you eat healthy so that you can look and feel your
+      best. We truly care about our customers and we are passionate about helping you reach your goals
+    </p>
+
+
+
+  </section>
+  <div class="line-wrapper" style="display: flex; justify-content: center; margin-top: 5vh;">
+    <div class="line-div" style="width: 70%;">
+      <hr>
+    </div>
+  </div>
+
+  <!--Some images to split the page up-->
+
+  <div class="container py-3">
+    <header>
+      <div class="pricing-header p-3 pb-md-4 mx-auto text-center" id="pricinginfo">
+        <h1 class="display-4 fw-normal">Pricing</h1>
+
+      </div>
+    </header>
+
+    <main>
+      <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+              <h4 class="my-0 fw-normal">9 Meals</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title">$175.50<small class="small faded">+tax</small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>1 Breakfast</li>
+                <li>2 Meals</li>
+                <li>Daily for 6 Days</li>
+              </ul>
+              <button type="button" onclick="orderPage()" class="w-100 btn btn-lg btn-primary">Order now</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+              <h4 class="my-0 fw-normal">12 Meals</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title">$228.00<small class="small faded">+tax</small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>1 Breakfast</li>
+                <li>3 Meals</li>
+                <li>Daily for 6 Days</li>
+              </ul>
+              <button type="button" onclick="orderPage()" class="w-100 btn btn-lg btn-primary">Order now</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm pricing-card-border-change">
+            <div class="card-header py-3 pricing-card-color-change">
+              <h4 class="my-0 fw-normal ">Custom</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title">Contact us</h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Customize your meal plan</li>
+                <li>Any amount of meals </li>
+                <li>Any amount of days</li>
+              </ul>
+              <button type="button" onclick="sendEmail();" class="w-100 btn btn-lg btn-primary">Contact us</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+  <section class="content2 orderinfo" id="orderinfo">
+    <p class="main-txt" id="content2main">
+      Ordering Inforamtion
+    </p>
+    <p class="body-txt subtext">
+      <b>Place your order by Wednesday 11AM</b>
+    </p>
+    <p class="body-txt subtext"> Pickup: Tuesday & Friday 1pm-6pm
+    </p>
+    <p class="body-txt subtext"> <b>81 Elizabeth Dr. Gander, NL. </b>(Between Greco and Highlight)
+    </p>
+    <p class="main-txt">
+      Got Questions?
+    </p>
+    <a href="mailto:preparedbycj@gmail.com" class="body-txt">Email Us</a>
+    <p class="body-txt" id="content2body">
+      (709) 381-0027
+    </p>
+
+
+
+  </section>
+
+
+
+  <!--Start of menu area-->
+  </section>
+
+  <div class="menu-wrapper">
+    <div class="container px-4 remove-padding" id="custom-cards">
+      <h2 class="pb-2 border-bottom weekly-txt" id="menu-anchor1">Weekly Menu</h2>
+      <div id="asdk" class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+
+        <template id="itema">
+
+          <div class="col">
+            <div id="img"
+              class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg backgroundchange"
+              style="background-image: url('img/meal5.jpg');">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h3 id="name" class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Item name</h3>
+                <small id="deet" class="food-info-text">Protien: 10g | Carbs: 10g | Fats: 10g | Calories: 1000</small>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto">
+
+                  </li>
+                  <li class="d-flex align-items-center me-3">
+                    <svg class="bi me-2" width="1em" height="1em">
+                      <use xlink:href="#geo-fill" />
+                    </svg>
+                    <small id="desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto animi delectus
+                      veniam aut eveniet velit voluptatibus debitis vel praesentium aliquid?</small>
+                  </li>
+                  <li class="d-flex align-items-center">
+                    <svg class="bi me-2" width="1em" height="1em">
+                      <use xlink:href="#calendar3" />
+                    </svg>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </template>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!--FOOTER-->
+  <div class="container">
+    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+      <div class="col mb-3">
+        <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+          <img src="img/josh-logo-removebg-preview.png" alt="Prepared Plus logo" class="footer-logo" height="200px">
+        </a>
+        <p class="text-muted">&copy; 2023</p>
+      </div>
+
+      <div class="col mb-3">
+
+      </div>
+
+      <div class="col mb-3">
+        <h5>Home</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a hrhome#pricinginfo" class="nav-link p-0 text-muted">Prices</a></li>
+          <li class="nav-item mb-2"><a href="home#orderinfo" class="nav-link p-0 text-muted">Order Info</a></li>
+          <li class="nav-item mb-2"><a href="home#menu-anchor1" class="nav-link p-0 text-muted">Menu</a></li>
+
+        </ul>
+      </div>
+
+      <div class="col mb-3">
+        <h5>About us</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="about#ourgoal" class="nav-link p-0 text-muted">Our goals</a></li>
+          <li class="nav-item mb-2"><a href="about#chefjosh" class="nav-link p-0 text-muted">The Chef</a></li>
+          <li class="nav-item mb-2"><a href="home#whyus" class="nav-link p-0 text-muted">Why us</a></li>
+          <li class="nav-item mb-2"><a href="about#faqlink" class="nav-link p-0 text-muted">FAQs</a></li>
+
+        </ul>
+      </div>
+
+      <div class="col mb-3">
+        <h5>Socials</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="mailto:preparedbycj@gmail.com" class="nav-link p-0 text-muted">Email us</a>
+          </li>
+          <li class="nav-item mb-2"><a href="https://www.facebook.com/profile.php?id=100082957863522&mibextid=LQQJ4d"
+              class="nav-link p-0 text-muted">Facebook</a></li>
+          <li class="nav-item mb-2"><a href="https://instagram.com/preparedplusbychefjosh?igshid=Zjc2ZTc4Nzk="
+              class="nav-link p-0 text-muted">Instagram</a></li>
+
+        </ul>
+      </div>
+    </footer>
+  </div>
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24">
+            <use xlink:href="#bootstrap" />
+          </svg>
+        </a>
+        <span class="mb-3 mb-md-0 text-muted">&copy; 2023 <a href=""
+            class="portfolio-link text-muted text-decoration-none">JLS Design</a></span>
+      </div>
+
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+              <use xlink:href="#twitter" />
+            </svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+              <use xlink:href="#instagram" />
+            </svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+              <use xlink:href="#facebook" />
+            </svg></a></li>
+      </ul>
+    </footer>
+  </div>
+
+
+
+
+  <div class="header"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

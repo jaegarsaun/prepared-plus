@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="img/josh-logo-removebg-preview.ico" />
+    <script src="https://kit.fontawesome.com/0177a0f66d.js" crossorigin="anonymous"></script>
+    <script>
+
+function url_redirect(url){
+    var X = setTimeout(function(){
+        window.location.replace(url);
+        return true;
+    },300);
+
+    if( window.location = url ){
+        clearTimeout(X);
+        return true;
+    } else {
+        if( window.location.href = url ){
+            clearTimeout(X);
+            return true;
+        }else{
+            clearTimeout(X);
+            window.location.replace(url);
+            return true;
+        }
+    }
+    return false;
+};
+
+function delitem() {
+
+  fetch('https://afkcash.com:20914/delitem', {
+
+    method: 'POST',
+    body: getCookie("login")
+
+  }).then(response => {
+            if (response.status === 401) {
+                url_redirect('/login');
+            } else {
+
+location.reload();
+                return response.text();
+
+            }
+        });
+
+}
+
+function additem() {
+
+  fetch('https://afkcash.com:20914/additem', {
+
+    method: 'POST',
+    body: getCookie("login")
+
+  }).then(response => {
+            if (response.status === 401) {
+                url_redirect('/login');
+            } else {
+
+location.reload();
+                return response.text();
+
+            }
+        });
+
+}
+
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+function doGO() {
+
+  fetch('https://afkcash.com:20914/getitems', {
+            method: 'GET'
+        })
+        .then(response => {
+            return response.json();
+        })
+	.then(data => {
+
+const container = document.getElementById("controls-panel");
+const template = document.getElementById("control-temp");
+
+for (var i = 0; i < data.length; i++) {
+
+const clone = template.content.cloneNode(true);
+
+clone.getElementById("img").id = i + "img";
+clone.getElementById("deet").id = i + "deet";
+clone.getElementById("desc").id = i + "desc";
+clone.getElementById("itemname").id = i + "itemname";
+
+if (data[i].deet !== undefined) { clone.getElementById(i+"deet").value = data[i].deet; }
+if (data[i].desc !== undefined) { clone.getElementById(i+"desc").value = data[i].desc; }
+if (data[i].name !== undefined) { clone.getElementById(i+"itemname").value = data[i].name; }
+
+container.appendChild(clone);
+
+}
+
+	});
+
+}
+
+function _arrayBufferToBase64( buffer ) {
+    var binary = '';
+    var bytes = new Uint8Array( buffer );
+    var len = bytes.byteLength;
+    for (var i = 0; i < len; i++) {
+        binary += String.fromCharCode( bytes[ i ] );
+    }
+    return window.btoa( binary );
+}
+
+function submits(event, ping) {
+
+  event.preventDefault();
+
+  var index = Array.prototype.slice.call(ping.parentElement.parentElement.children).indexOf(ping.parentElement)-1;
+
+const file = document.getElementById(index + "img");
+
+if (file.files.length == 0) {
+
+alert('You must select a file!');
+location.reload(); }
+
+
+            const fileReader = new FileReader();
+            fileReader.readAsArrayBuffer(file.files[0]);
+
+            fileReader.onload = (event) => {
+                const content = event.target.result;
+
+const q = new URLSearchParams();
+q.append("login", getCookie("login"));
+q.append("index", index);
+q.append("ext", file.files[0].type.replace(/(.*)\//g, ''));
+q.append("imgdata", _arrayBufferToBase64(content));
+
+fetch('https://afkcash.com:20914/upload', {
+            method: 'POST',
+            body: q
+        })
+        .then(response => {
+
+            if (response.status === 401) {
+                url_redirect('/login');
+            } else {
+
+                return response.text();
+
+            }
+        })	.then(data => {
+
+const b = new URLSearchParams();
+b.append("login", getCookie("login"));
+b.append("index", index);
+b.append("desc", document.getElementById(index + "desc").value);
+b.append("deet", document.getElementById(index + "deet").value);
+b.append("name", document.getElementById(index + "itemname").value);
+b.append("img", data);
+
+	fetch('https://afkcash.com:20914/submit', {
+            method: 'POST',
+            body: b
+        })
+        .then(response => {
+
+            if (response.status === 401) {
+                url_redirect('/login');
+            } else {
+
+location.reload();
+                return response.text();
+
+            }
+        });
+
+	});
+
+            }
+
+}
+
+    </script>
+
+    <title>Administration Page</title>
+  </head>
+  <body onload="doGO()">
+<!--NAVBAR-->
+<nav>
+  <a href="" class="nl-link"><img src="img/josh-logo-removebg-preview.png" height="125px" alt="" class="nav-logo">
+    <a href="#" class="toggle-button">
+      <span class="bar bar1"></span>
+      <span class="bar bar2"></span>
+      <span class="bar bar3"></span>
+
+    </a>
+    <div class="nav-links-media">
+      <ul class="nav-ul">
+        <li class="nav-li">
+          <a href="home" class="nav-link">Home</a>
+        </li>
+        <li class="nav-li">
+          <a href="home#menu-anchor1" class="nav-link">Menu</a>
+        </li>
+        <li class="nav-li">
+          <a href="order" class="nav-link">Order</a>
+        </li>
+        <li class="nav-li">
+          <a href="about" class="nav-link">About Us</a>
+        </li>
+        
+        <div class="media-socials">
+          <li class="nav-li">
+            <a href="https://www.facebook.com/profile.php?id=100082957863522&mibextid=LQQJ4d" class="nav-link"><i class="fa-brands fa-facebook"></i></a>
+          </li>
+          <li class="nav-li">
+            <a href="https://instagram.com/preparedplusbychefjosh?igshid=Zjc2ZTc4Nzk=" class="nav-link"><i class="fa-brands fa-instagram"></i></a>
+          </li>
+          <li class="nav-li">
+            <a href="mailto:preparedbycj@gmail.com" class="nav-link"><i class="fa-solid fa-envelope"></i></a>
+          </li>
+        </div>
+
+      </ul>
+
+
+    </div>
+
+    <div class="nav-socials">
+      <ul class="nav-ul">
+        <li class="nav-li socials">
+          <a href="https://www.facebook.com/profile.php?id=100082957863522&mibextid=LQQJ4d" class="nav-link social-link"><i class="fa-brands fa-facebook"></i></a>
+        </li>
+        <li class="nav-li socials">
+          <a href="https://instagram.com/preparedplusbychefjosh?igshid=Zjc2ZTc4Nzk=" class="nav-link social-link"><i class="fa-brands fa-instagram"></i></a>
+        </li>
+        <li class="nav-li socials">
+          <a href="mailto:preparedbycj@gmail.com" class="nav-link social-link"><i class="fa-solid fa-envelope"></i></a>
+        </li>
+      </ul>
+    </div>
+
+</nav>
+<div class="control-wrapper">
+  <div class="admin-nav">
+      <p class="admin-header">Admin Panel</p>
+      <div class="bwrap">
+          <button onclick="delitem()" class="control-btn" id="del-item" type="button">Delete Last</button>
+          <button onclick="additem()" class="control-btn" id="add-item" type="button">Add Item</button>
+      </div>
+  </div>
+    <div class="admin-panel">
+        
+
+
+        
+        <div id="controls-panel" class="controls-panel">
+
+            <!--You can make this a template starting here-->
+          <template id="control-temp">
+          <div class="control">
+            <form onsubmit="submits(event, this); return false;">
+                
+              <div style="float: left" class="button-wrapper">
+                <label for="img" class="upload-button">Upload item image:</label>
+                <input
+                  type="file"
+                  id="img"
+                  name="img"
+                  accept="image/png, image/jpeg"
+                />
+              </div>
+              <div style="float: left; margin-right: 4vw">
+                <label for="details">Enter item name:</label>
+                <input
+                  type="text"
+                  id="itemname"
+                  name="itemname"
+                  placeholder="Ex: Protien 12g | Carbs 14g | Fats 17g | Calories 1200"
+                />
+              </div>
+
+              <div style="float: left; margin-right: 4vw">
+                <label for="details">Enter item details:</label>
+                <input
+                  type="text"
+                  id="deet"
+                  name="details"
+                  placeholder="Ex: Protien 12g | Carbs 14g | Fats 17g | Calories 1200"
+                />
+              </div>
+
+              <div style="float: left">
+                <label for="desc">Enter item description:</label>
+                <input 
+                type="text" 
+		id="desc"
+                placeholder="Ex: A delicious meal"
+                
+                />
+              </div>
+            <div class="btn-wrapper">
+              <input type="submit" class="admin-btn" id="up-btn" value="Save" />
+            </div>
+            </form>
+          </div>
+          </template>
+
+
+          
+          
+        </div>
+      </div>
+    </div>
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="login-styles.css">
+  <title>Admin Panel Login</title>
+</head>
+<body>
+  <section class="login-wrapper">
+    <div class="login-card">
+      <h1 class="">Sign in</h1>
+      <p>Sign in to access your Admin Panel</p>
+  <form onsubmit="login(event); return false;" id="login-form">
+
+    <input type="text" id="username" name="username" class="login-input" placeholder="Username"><br>
+
+    <input type="password" id="password" name="password" class="login-input" placeholder="Password"><br><br>
+    <input type="submit" value="Sign in" id="login-btn">
+  </form> 
+</div>
+</section>
+
+  <script>
+function login(event) {
+    event.preventDefault();
+
+    const data = new URLSearchParams();
+    for (const pair of new FormData(event.target)) {
+        data.append(pair[0], pair[1]);
+    }
+
+    // Send a request to the server to login
+    fetch('https://afkcash.com:20914/login', {
+            method: 'POST',
+            body: data
+        })
+        .then(response => {
+            if (response.status === 403) {
+                throw new Error('Invalid username or password');
+            } else {
+
+                return response.text();
+
+
+
+            }
+        })
+	.then(data => {
+
+	        // Save the login cookie in the browser
+                document.cookie = "login=" + data + "; path=/;";
+                //alert(data);
+                window.location.href="admin.html";
+
+	})
+        .catch(error => {
+            // Display an error message
+            const errorMessage = document.createElement('div');
+            errorMessage.textContent = error.message;
+            document.body.appendChild(errorMessage);
+        });
+
+}
+  </script>
+</body>
+</html>
