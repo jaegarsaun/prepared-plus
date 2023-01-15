@@ -1,2 +1,5 @@
+AUTHOR: Jaegar Saunders
+DISCORD: joy#1184
+
 # prepared-plus
-Contracted website
+A contracted website for Chef Josh.
